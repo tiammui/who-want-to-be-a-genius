@@ -1,0 +1,83 @@
+{
+  "semesters": [
+    {
+      "id": "semester-id1",
+      "program": "nd",
+      "programType": "pt",
+      "school": "Departments of Computer",
+      "department": "cs",
+      "semester": 5,
+      "courses": [
+        "course-id1",
+        "course-id2",
+        "course-id3",
+        "course-id4",
+        "course-id5",
+        "course-id6",
+        "course-id7"
+      ],
+      "shortName": "nd pt cs 5",
+
+      "schoolCode": "LCP",
+      "level": "200"
+    }
+  ],
+  "courses": [
+    {
+      "id": "course-id1",
+      "title": "Basic Hardware Maintenance",
+      "deptCodeUnitEntries": ["cs", "com221", 3, "ee", "eec111", 4],
+      "keywords": [],
+
+      "schoolCode": "LCP"
+    },
+    {
+      "id": "course-id2",
+      "title": "Seminar on Computer and Society",
+      "deptCodeUnitEntries": ["cs", "com221", 3],
+      "keywords": [],
+
+      "schoolCode": "LCP"
+    },
+    {
+      "id": "course-id3",
+      "title": "Universal Modelling Language",
+      "deptCodeUnitEntries": ["cs", "com221", 3],
+      "keywords": [],
+
+      "schoolCode": "LCP"
+    },
+    {
+      "id": "course-id4",
+      "title": "Enterpreneurship",
+      "deptCodeUnitEntries": ["cs", "com221", 3],
+      "keywords": [],
+
+      "schoolCode": "LCP"
+    },
+    {
+      "id": "course-id5",
+      "title": "Research Method",
+      "deptCodeUnitEntries": ["cs", "com221", 3],
+      "keywords": [],
+
+      "schoolCode": "LCP"
+    },
+    {
+      "id": "course-id6",
+      "title": "Technical English II",
+      "deptCodeUnitEntries": ["cs", "com221", 3],
+      "keywords": [],
+
+      "schoolCode": "LCP"
+    },
+    {
+      "id": "course-id7",
+      "title": "Goal",
+      "deptCodeUnitEntries": ["cs", "com221", 3],
+      "keywords": [],
+
+      "schoolCode": "LCP"
+    }
+  ]
+}
