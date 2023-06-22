@@ -15,7 +15,7 @@ export default function App() {
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ['Catamaran', 'Blogger Sans'],
+        families: ['Squada One', 'Comic Neue'],
       },
       // custom: {
       //   families: ['Blogger Sans'],
