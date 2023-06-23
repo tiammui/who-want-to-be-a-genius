@@ -1,0 +1,177 @@
+// NOTE: DO NOT FORGET TO USE RELATIVE UNITS FOR FONTS (rem)
+// NOTE: STYLE WITH MOBILE-FIRST MINDSET (600px and below)
+
+// focus: Fonts
+
+// focus: Initializing Variables (must be above import of defaults.scss)
+:root {
+  --font-regular: 'Comic Sans MS', cursive, sans-serif;
+  --font-title: 'Squada One', sans-serif;
+  --font-size-default: 16px; /* 1rem, 13px=0.8125rem, 18px=1.125rem, 20px=1.25rem, 24px=1.5rem, 32px=2rem, 40px=2.5rem */
+  --font-size-heading: 1.25rem;
+  --font-size-subtitle: 1.5rem;
+  --font-size-title: 2.5rem;
+  --font-weight-title: 700;
+  --font-weight-regular: 400;
+  // --line-height-regular: 1.09;
+  // --line-height-title: 1.64;
+
+  --hue-white: #fff;
+  --hue-main-dark: #001a32;
+  --hue-green: #37ff51;
+  --hue-purple: #7e17ce;
+  --hue-blue: #43bbef;
+  --hue-aqua: #0ff;
+  --hue-violet: #f0f;
+
+  --border-radius-regular: 10px;
+  --shadow-text: 1px 1px 0px rgba(0, 0, 0, 0.25);
+  --shadow-text-glith: -1px 0px 0px 0px #0ff, 1px 0px 0px 0px #f0f,
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --shadow-button: 0 2px 4px rgba(0, 0, 0, 0.25);
+
+  --space: 10px;
+
+  --length-mobile-max: 600px;
+}
+
+// focus: Default style Imports- must be at the top
+@import './defaults';
+
+@import './components/Theme';
+
+// focus: Element
+h3 {
+  font-family: var(--font-title);
+  font-size: var(--font-regular);
+  line-height: var(--line-height-title);
+  margin-bottom: var(--space);
+}
+a,
+.link {
+  color: var(--color-text-link);
+  font-weight: var(--font-weight-title);
+}
+
+input,
+select {
+  border-radius: var(--border-radius-regular);
+  height: 35px;
+  border: 1px solid var(--color-border-input);
+  padding: 0 var(--space);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  box-shadow: inset 0 0 2px var(--color-text-primary);
+
+  & ~ .error {
+    position: absolute;
+    top: 100%;
+    display: none;
+    font-size: var(--font-size-hint);
+    color: var(--color-warning);
+    margin-left: var(--space);
+    margin-top: var(--margin-input-status);
+    // li {
+    //   list-style: circle;
+    //   margin: 5px;
+    // }
+  }
+  &[aria-invalid='true'] {
+    border: 1px solid var(--color-warning);
+    & ~ .error {
+      display: block;
+    }
+  }
+}
+
+// Hide Arrows From Input Number
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+label {
+  font-family: var(--font-title);
+  font-weight: var(--font-weight-title);
+}
+
+// focus: IDs
+#footer {
+  background-color: var(--color-bg-footer);
+  color: var(--color-text-footer);
+  padding: var(--space3) var(--space);
+  text-align: center;
+}
+#main-container {
+  height: auto;
+  min-height: 100vh;
+
+  padding-top: 80px;
+}
+#modals {
+  & > * {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgba(0, 0, 0, 0.8);
+    animation: modal-fade 1s forwards;
+
+    &.super {
+      z-index: 4;
+      overflow: auto;
+    }
+    &.show {
+      display: block;
+    }
+  }
+  .modal-body {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 32px;
+    text-align: center;
+    text-shadow: none;
+    background: white;
+    padding: 10px;
+  }
+  .modal-content {
+    padding: 0 30px 20px 30px;
+    text-align: left;
+  }
+}
+
+// focus: Classes
+
+// focus: Attributes
+
+// focus: Animations
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// focus: Responsive style Import- must be at the bottom
+@import './responsive';
