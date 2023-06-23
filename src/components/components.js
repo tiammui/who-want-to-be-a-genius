@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBars,
-  faExclamationCircle,
   faChevronRight,
   faPlus,
   faTimes,
-  faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { nanoid } from 'nanoid';
 
@@ -37,119 +33,7 @@ export function CloseButton({ actionHnd }) {
   );
 }
 
-export function CourseCard({ id, code, units, score, position }) {
-  const { isLcpGpaCalc } = useStoreWrapper('isLcpGpaCalc'); // to determine if the course-card is for LCP GPA Calculation
 
-  return (
-    <div className="course-card card">
-      <div className="top">
-        <div className="position">{position}</div>
-        {isLcpGpaCalc ? '' : <CloseButton />}
-      </div>
-      <div className="inputs">
-        {/* <div className="course-input-con">
-        <label htmlFor="">Course Code:</label>
-        <Spacer axis="x" spaceRatio={1}></Spacer>
-        <input type="text" aria-invalid="false" />
-        <ul id={`-error`} className="error">
-          <li>Only alphabets are allowed</li>
-        </ul>
-
-        <div className="info">
-          <FontAwesomeIcon icon={faInfoCircle} />
-        </div>
-      </div> */}
-        <CourseInputCon
-          labelText="course code"
-          inputType="text"
-          inputName="course-id"
-          defaultValue={code.toUpperCase()}
-          disabled={isLcpGpaCalc}
-          changeHnd={() => 1}
-        />
-        <CourseInputCon
-          labelText="course units"
-          inputType="number"
-          inputName="course-id"
-          defaultValue={units}
-          disabled={isLcpGpaCalc}
-          changeHnd={() => 1}
-        />
-        <CourseInputCon
-          labelText="total score"
-          inputType="number"
-          inputName="course-id"
-          defaultValue=""
-          disabled={false}
-          changeHnd={() => 1}
-        />
-      </div>
-      <div className="result">
-        <div className="grade">
-          <div className="title">Grade</div>
-          <div className="value">A+</div>
-        </div>
-        <div className={`gpe ${isLcpGpaCalc ? '' : 'useless'}`}>
-          {/* for NBTE GPA calculation hide GPE */}
-          <div className="title">GPE</div>
-          <div className="value">3.5</div>
-        </div>
-        <div className="gp">
-          <div className="title">GP</div>
-          <div className="value">15 / 20</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function CourseInputCon({
-  inputName,
-  labelText,
-  defaultValue,
-  changeHnd,
-  inputType,
-  infoText,
-  disabled,
-}) {
-  return (
-    <div className="course-input-con">
-      <label htmlFor={inputName}>{capitalizeWords(labelText)}:</label>
-      <Spacer axis="x" spaceRatio={1}></Spacer>
-      <input
-        type={inputType}
-        name={inputName}
-        value={defaultValue || ''}
-        disabled={disabled}
-        aria-invalid="false"
-        onChange={changeHnd}
-      />
-      <ul id={`${inputName}-error`} className="error">
-        <li>Only alphabets are allowed</li>
-      </ul>
-
-      <div className="info">
-        <FontAwesomeIcon icon={faInfoCircle} />
-      </div>
-    </div>
-  );
-}
-
-export function InfoNote({ text, link }) {
-  return (
-    <div className="info-note note-card">
-      <div className="info">
-        <div className="icon">
-          <FontAwesomeIcon icon={faExclamationCircle} />
-        </div>
-        <p>{text}</p>
-      </div>
-      <div>
-        <Link to={link}>Click here to know more</Link>
-      </div>
-    </div>
-  );
-}
 
 const departmentOptions = [
   { value: '', text: 'Choose department' },
@@ -195,21 +79,6 @@ export function InputCon({
   );
 }
 
-export function ResultBar({ titleLeft, titleRight, valueLeft, valueRight }) {
-  return (
-    <div className="result-bar bar">
-      <div className="left">
-        <div className="title">{titleLeft}</div>
-        <div className="value">{valueLeft}</div>
-      </div>
-      <div className="right">
-        <div className="title">{titleRight}</div>
-        <div className="value">{valueRight}</div>
-      </div>
-    </div>
-  );
-}
-
 export function Spacer({ axis, spaceRatio }) {
   /**
    *
@@ -241,16 +110,6 @@ export function Spacer({ axis, spaceRatio }) {
   );
 }
 
-export function TermNote({ heading, texts }) {
-  return (
-    <div className="term-note note-card">
-      <h3>{heading}</h3>
-      {texts.map((text) => (
-        <p key={nanoid()}>{text}</p>
-      ))}
-    </div>
-  );
-}
 
 function SelectInput({ selectType, defaultValue, inputName, changeHnd }) {
   return (
