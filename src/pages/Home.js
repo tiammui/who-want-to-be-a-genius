@@ -32,13 +32,20 @@ export default function () {
               <div className="title">WHO WANT TO BE A GENIUS</div>
               <div className="subtitle">A FUN, BRAIN PROVOKING COMPETITION</div>
               <div className="big-body">
-                LCP version of “who want to be a millionaire”, But with
-                different fun rules
+                <b>LCP</b> version of "
+                <i>
+                  <u>who want to be a millionaire</u>
+                </i>
+                ", But with different fun rules
               </div>
             </div>
           </li>
-          <li className="item">pppppp</li>
-          <li className="item">pppppp</li>
+          <li className="item">
+            <div className="curtain"></div>
+          </li>
+          <li className="item">
+            <div className="curtain"></div>
+          </li>
         </ul>
       </div>
       {/* TODO manage scrolling with navigator */}
