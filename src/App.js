@@ -17,10 +17,6 @@ export default function App() {
       google: {
         families: ['Squada One', 'Comic Neue'],
       },
-      // custom: {
-      //   families: ['Blogger Sans'],
-      //   urls:['./fonts/fonts.scss']
-      // },
     });
   }, []);
   return (

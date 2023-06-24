@@ -5,15 +5,16 @@ import { Link } from 'react-router-dom';
 
 export default function () {
   return (
-    <div id="top-bar" className="card">
+    <div id="top-bar">
       <Link to="/" className="logo" title="Go to homepage">
         <img
           // src={logo}
-          height="30px"
-          alt="logo"
+          alt="City Genius Logo"
         />
       </Link>
-
+      <h1>
+        WHO WANT TO BE A GENIUS
+      </h1>
     </div>
   );
 }

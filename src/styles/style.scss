@@ -18,6 +18,7 @@
 
   --hue-white: #fff;
   --hue-main-dark: #001a32;
+  --hue-main-dark-80: rgba(0, 26, 50, 0.8);
   --hue-green: #37ff51;
   --hue-purple: #7e17ce;
   --hue-blue: #43bbef;
@@ -26,8 +27,8 @@
 
   --border-radius-regular: 10px;
   --shadow-text: 1px 1px 0px rgba(0, 0, 0, 0.25);
-  --shadow-text-glith: -1px 0px 0px 0px #0ff, 1px 0px 0px 0px #f0f,
-    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --shadow-text-glitch: -1px 0px 0px 0px var(--hue-aqua),
+    1px 0px 0px 0px var(--hue-purple), 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   --shadow-button: 0 2px 4px rgba(0, 0, 0, 0.25);
 
   --space: 10px;
@@ -41,18 +42,6 @@
 @import './components/Theme';
 
 // focus: Element
-h3 {
-  font-family: var(--font-title);
-  font-size: var(--font-regular);
-  line-height: var(--line-height-title);
-  margin-bottom: var(--space);
-}
-a,
-.link {
-  color: var(--color-text-link);
-  font-weight: var(--font-weight-title);
-}
-
 input,
 select {
   border-radius: var(--border-radius-regular);
@@ -159,6 +148,16 @@ label {
 }
 
 // focus: Classes
+.title {
+  font-family: var(--font-title);
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-title);
+}
+.subtitle {
+  font-family: var(--font-title);
+  font-size: var(--font-size-subtitle);
+  font-weight: var(--font-weight-title);
+}
 
 // focus: Attributes
 
@@ -172,6 +171,9 @@ label {
     opacity: 1;
   }
 }
+
+@import './components/Topbar';
+// @import './components/InputCon';
 
 // focus: Responsive style Import- must be at the bottom
 @import './responsive';
