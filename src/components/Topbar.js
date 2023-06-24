@@ -12,9 +12,7 @@ export default function () {
           alt="City Genius Logo"
         />
       </Link>
-      <h1>
-        WHO WANT TO BE A GENIUS
-      </h1>
+      <h1>WHO WANT TO BE A GENIUS</h1>
     </div>
   );
 }
