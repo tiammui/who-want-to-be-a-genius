@@ -27,9 +27,8 @@ export default function App() {
 
       <div id="main-container">
         <Routes>
-          <Route path={ROUTE_PATHS.HOME} element={<Home />} />
+          <Route path="*" element={<Home />} />
           <Route path={ROUTE_PATHS.THANK_YOU} element={<ThankYou />} />
-          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
