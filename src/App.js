@@ -8,6 +8,7 @@ import { ROUTE_PATHS } from './utils/enums';
 
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
+import ThankYou from './pages/ThankYou';
 import Topbar from './components/Topbar';
 import Footer from './components/Footer';
 import { Spacer } from './components/components';
@@ -27,6 +28,7 @@ export default function App() {
       <div id="main-container">
         <Routes>
           <Route path={ROUTE_PATHS.HOME} element={<Home />} />
+          <Route path={ROUTE_PATHS.THANK_YOU} element={<ThankYou />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

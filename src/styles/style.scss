@@ -167,6 +167,20 @@ label {
   }
 }
 
+#thank-you{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  height: 100vmin;
+  // color: var(--color-text-head);
+  .icon{
+    font-size: 70px;
+    color: var(--hue-green);
+  }
+}
+
 #footer {
   background-color: var(--color-bg-footer);
   color: var(--color-text-footer);
@@ -178,6 +192,7 @@ label {
 #main-container {
   height: auto;
   min-height: 100vh;
+  background-color: var(--color-bg-primary);
 }
 
 

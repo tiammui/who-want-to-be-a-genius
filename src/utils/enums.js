@@ -1,5 +1,6 @@
 export const ROUTE_PATHS = {
   HOME: '/',
+  THANK_YOU: '/thank-you',
 };
 
 // const DB_BASE_URL = "https://nodejitp8h-bjfk--4000--9c984a48.local-credentialless.webcontainer.io"

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronRight,
@@ -7,16 +8,19 @@ import {
 
 import { ROUTE_PATHS, CALC_TYPES } from './../utils/enums';
 import { useStoreWrapper } from './../utils/stateStore';
+import { register } from './../utils/firebase';
 import NotFound from './NotFound';
 import { InputCon, Spacer } from './../components/components';
 
 export default function () {
   const { activeHeader, setActiveHeader } = useStoreWrapper('activeHeader');
-  const { registerForm} =
-    useStoreWrapper('registerForm');
+  const { registerForm, setRegisterForm } = useStoreWrapper('registerForm');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    headerScroll2(2);
+    window.scrollTo(0,0)
+    headerScroll2(1);
   }, []);
 
   function headerScroll2(itemIndex) {
@@ -43,6 +47,20 @@ export default function () {
   function registerFormSubmitHnd(e) {
     e.preventDefault();
     console.log(registerForm);
+    register(registerForm)
+      .then(() => {
+        setRegisterForm({});
+        navigate(ROUTE_PATHS.THANK_YOU);
+      })
+      .catch((err) => {
+        alert('An error occurred \n You can call 0808 352 4016 (Muizz) to register');
+        console.error(err);
+      });
+  }
+
+  function toRegister(){
+    document
+      .getElementById('register').scrollIntoView()
   }
 
   return (
@@ -78,7 +96,7 @@ export default function () {
                 CASH PRIZE OF
               </div>
               <div className="exclamation">₦10,000</div>
-              <button className="btn">Register</button>
+              <button className="btn" onClick={toRegister}>Register</button>
             </div>
           </li>
           <li className="item">
@@ -91,7 +109,7 @@ export default function () {
                 Holding @ <br /> ONABANJO HALL <br /> 4PM Saturday, JULY 1st
                 2023
               </div>
-              <button className="btn">Register</button>
+              <button className="btn" onClick={toRegister}>Register</button>
             </div>
           </li>
         </ul>

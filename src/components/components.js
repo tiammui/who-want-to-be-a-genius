@@ -120,7 +120,7 @@ function TextInput({
       name={inputName}
       placeholder={placeholder}
       value={defaultValue || ''}
-      aria-invalid="true"
+      aria-invalid="false"
       aria-errormessage={`${inputName}-error`}
       onChange={changeHnd}
     />
