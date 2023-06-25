@@ -1,12 +1,23 @@
-import React, { useRef, useState } from 'react';
-import { nanoid } from 'nanoid';
+import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChevronRight,
+  faChevronLeft,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { ROUTE_PATHS, CALC_TYPES } from './../utils/enums';
-import NotFound from './NotFound';
 import { useStoreWrapper } from './../utils/stateStore';
+import NotFound from './NotFound';
+import { InputCon, Spacer } from './../components/components';
 
 export default function () {
   const { activeHeader, setActiveHeader } = useStoreWrapper('activeHeader');
+  const { registerForm} =
+    useStoreWrapper('registerForm');
+
+  useEffect(() => {
+    headerScroll2(2);
+  }, []);
 
   function headerScroll2(itemIndex) {
     let element = document
@@ -17,8 +28,26 @@ export default function () {
     element.scrollIntoView();
   }
 
+  /**
+   *
+   * @param {boolean} prev
+   */
+  function slide(prev) {
+    if (prev) {
+      headerScroll2(activeHeader - 1 < 0 ? 2 : activeHeader - 1);
+    } else {
+      headerScroll2(activeHeader + 1 < 3 ? activeHeader + 1 : 0);
+    }
+  }
+
+  function registerFormSubmitHnd(e) {
+    e.preventDefault();
+    console.log(registerForm);
+  }
+
   return (
     <div id="home-screen">
+      <div className="color-band"></div>
       <div
         id="home-header"
         className="carousel"
@@ -29,9 +58,11 @@ export default function () {
         <ul>
           <li className="item">
             <div className="curtain">
-              <div className="title">WHO WANT TO BE A GENIUS</div>
+              <div className="title">
+                WHO WANT TO <br /> BE A GENIUS
+              </div>
               <div className="subtitle">A FUN, BRAIN PROVOKING COMPETITION</div>
-              <div className="big-body">
+              <div className="heading">
                 <b>LCP</b> version of "
                 <i>
                   <u>who want to be a millionaire</u>
@@ -41,14 +72,40 @@ export default function () {
             </div>
           </li>
           <li className="item">
-            <div className="curtain"></div>
+            <div className="curtain">
+              <div className="heading">
+                REPRESENT YOUR DEPARTMENT IN THE COMPETITION TO WIN FROM THE
+                CASH PRIZE OF
+              </div>
+              <div className="exclamation">₦10,000</div>
+              <button className="btn">Register</button>
+            </div>
           </li>
           <li className="item">
-            <div className="curtain"></div>
+            <div className="curtain">
+              <div className="heading">All Part-time students are invited</div>
+              <div className="heading">
+                Snacks will be served <br /> It would be fun
+              </div>
+              <div className="heading">
+                Holding @ <br /> ONABANJO HALL <br /> 4PM Saturday, JULY 1st
+                2023
+              </div>
+              <button className="btn">Register</button>
+            </div>
           </li>
         </ul>
       </div>
-      {/* TODO manage scrolling with navigator */}
+
+      <div className="sliders">
+        <button className="slider next" onClick={() => slide()}>
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
+        <button className="slider prev" onClick={() => slide(true)}>
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+      </div>
+
       <div className="navigator">
         <button
           className={activeHeader == 0 ? 'active' : ''}
@@ -71,6 +128,38 @@ export default function () {
             activeHeader == 2 ? null : headerScroll2(2);
           }}
         ></button>
+      </div>
+      <div className="color-band"></div>
+
+      <div id="register">
+        <h3 className="heading">Participant Registration</h3>
+        <p>
+          If you’re willing to try your shot at the cash price of ₦10,000
+          provide your details below.
+        </p>
+
+        <form onSubmit={registerFormSubmitHnd}>
+          <InputCon
+            inputName={`register-name`}
+            labelText={`Fullname`}
+            placeholder={`Your fullname here ...`}
+            inputType="text"
+          />
+          <InputCon
+            inputName={`register-department`}
+            labelText={`Department`}
+            inputType="select"
+            selectType={'department'}
+          />
+          <InputCon
+            inputName={`register-number`}
+            labelText={`Phone number`}
+            placeholder={`Your phone number here ...`}
+            inputType="number"
+          />
+          <Spacer axis="y" spaceRatio={4} />
+          <button className="btn">Submit</button>
+        </form>
       </div>
     </div>
   );

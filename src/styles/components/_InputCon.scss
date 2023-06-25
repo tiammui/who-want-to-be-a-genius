@@ -1,0 +1,28 @@
+.input-con {
+  position: relative;
+  margin: 0 auto var(--space2) auto;
+  max-width: 250px;
+
+  input,
+  select {
+    position: relative;
+    width: 100%;
+  }
+  label {
+    margin-left: var(--space);
+  }
+
+  .error {
+    width: 100%;
+  }
+  .info {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    font-size: 12px;
+  }
+  .note {
+    b {
+    }
+  }
+}

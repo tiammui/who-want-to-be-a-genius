@@ -6,6 +6,14 @@ import { searchCourse, capitalizeWords, indexOfObject } from './helpers';
 export const useStore = create((set) => ({
   activeHeader: 0,
   setActiveHeader: (index) => set((state) => ({ activeHeader: index })),
+  registerForm: {},
+  setRegisterForm: (form) => set((state) => ({ registerForm: form })),
+  registerFormChangeHnd: (e) => {
+    const elem = e.target;
+    return set((state) => ({
+      registerForm: { ...state.registerForm, [elem.name]: elem.value },
+    }));
+  },
 }));
 
 /**
@@ -24,6 +32,7 @@ export function useStoreWrapper(stateName) {
 
   let customActionStates = {
     stateName: ['actionName1', 'actionName2'],
+    registerForm: ['setRegisterForm', 'registerFormChangeHnd'],
   };
 
   let result = {

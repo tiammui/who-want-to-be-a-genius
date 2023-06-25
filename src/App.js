@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Topbar from './components/Topbar';
 import Footer from './components/Footer';
+import { Spacer } from './components/components';
 
 export default function App() {
   useEffect(() => {
