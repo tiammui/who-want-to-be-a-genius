@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-// import logo from "./../images/logo.png";
+import logo from "./../images/logo.png";
 
 export default function () {
   return (
     <div id="top-bar">
       <Link to="/" className="logo" title="Go to homepage">
         <img
-          // src={logo}
+          src={logo}
           alt="City Genius Logo"
         />
       </Link>
