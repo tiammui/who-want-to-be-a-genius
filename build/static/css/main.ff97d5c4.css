@@ -1,5 +1,5 @@
 :root {
-    --font-regular: "Comic Sans MS", cursive, sans-serif;
+    --font-regular: "Comic Neue", sans-serif;
     --font-title: "Squada One", sans-serif;
     --font-size-default: 16px;
     --font-size-hint: 0.8125rem;
@@ -53,7 +53,7 @@ body,
 button,
 html {
     color: var(--color-text-primary);
-    font-family: Comic Sans MS, cursive, sans-serif;
+    font-family: Comic Neue, sans-serif;
     font-family: var(--font-regular);
     font-size: 16px;
     font-size: var(--font-size-default)
@@ -488,7 +488,7 @@ label {
 }
 
 .heading {
-    font-family: Comic Sans MS, cursive, sans-serif;
+    font-family: Comic Neue, sans-serif;
     font-family: var(--font-regular);
     font-size: 1.25rem;
     font-size: var(--font-size-heading);
